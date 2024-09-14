@@ -3,7 +3,9 @@ export default {
   install: (app) => {
     const mEl = document.createElement('div')
     mEl.style.position = 'fixed'
-    mEl.classList = 'topRight'
+    mEl.style.top = '0'
+    mEl.style.right = '0'
+    mEl.style.opacity = '0.95'
     mEl.style.zIndex = '1000'
 
     const stats = new MemoryStats()
@@ -19,6 +21,5 @@ export default {
       requestAnimationFrame(rAFloop)
     }
     document.body.appendChild(mEl)
-    console.log('runningg.....')
   }
 }

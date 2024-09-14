@@ -34,9 +34,21 @@ export default {
 }
 </script>
 
-<style>
-body {
-  background-color: lightgrey !important;
+<style scoped>
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 2rem;
+  font-weight: normal;
+  background-color: lightgrey;
+}
+@media (min-width: 1024px) {
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
 }
 h1 {
   color: #333;
@@ -51,24 +63,5 @@ li {
   padding: 10px;
   border-radius: 4px;
   color: black;
-}
-.mstats {
-  position: absolute;
-}
-.topRight {
-  top: 0;
-  right: 0;
-}
-.topLeft {
-  top: 0;
-  left: 0;
-}
-.bottomLeft {
-  bottom: 0;
-  left: 0;
-}
-.bottomRight {
-  bottom: 0;
-  right: 0;
 }
 </style>
