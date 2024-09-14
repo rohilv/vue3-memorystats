@@ -18,7 +18,6 @@ export default {
     app.config.globalProperties.$updateMemmoryStats = (rAFloop) => {
       requestAnimationFrame(rAFloop)
     }
-
     document.body.appendChild(mEl)
     console.log('runningg.....')
   }
