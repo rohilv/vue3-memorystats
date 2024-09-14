@@ -1,39 +1,42 @@
 # vue3-memorystats
 
-This template should help get you started developing with Vue 3 in Vite.
+This Vue 3 Plugin is based on Paul Irish's memory-stats.
+![Memory Stats](src/assets/memory.png)
 
-## Recommended IDE Setup
+## Installation
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+```
+npm install vue3-memorystats
+```
 
-## Type Support for `.vue` Imports in TS
+## Usage
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+```
+// main.js
+import { createApp } from 'vue'
+import App from './App.vue'
+import vMemoryStats from './js/vMemoryStats'
 
-## Customize configuration
+const app = createApp(App)
+app.use(vMemoryStats)
+app.mount('#app')
+```
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Start Chrome with --enable-precise-memory-info
 
-## Project Setup
+```
+# Linux
+google-chrome --enable-precise-memory-info --enable-memory-info
 
-```sh
+#MacOS
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-precise-memory-info --enable-memory-info
+```
+
+## Development
+
+```
+// install dependencies
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
+// run example locally and start server
 npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
