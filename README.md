@@ -1,7 +1,8 @@
 # vue3-memorystats
 
 This Vue 3 Plugin is based on Paul Irish's memory-stats.
-![Memory Stats](src/assets/memory.png)
+
+![Memory Stats](src/assets/memory.gif)
 
 ## Installation
 
@@ -30,6 +31,8 @@ google-chrome --enable-precise-memory-info --enable-memory-info
 
 #MacOS
 /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-precise-memory-info --enable-memory-info
+or
+open -a 'Google Chrome' --args --enable-precise-memory-info --enable-memory-info
 ```
 
 ## Development
