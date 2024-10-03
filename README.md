@@ -1,7 +1,8 @@
 # vue3-memorystats
 
 This Vue 3 Plugin is based on Paul Irish's memory-stats.
-![Memory Stats](src/assets/memory.png)
+
+![Memory Stats](src/assets/memory.gif)
 
 ## Installation
 
