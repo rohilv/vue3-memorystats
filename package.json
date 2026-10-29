@@ -17,6 +17,10 @@
   ],
   "author": "Rohil Visariya",
   "homepage": "https://github.com/rohilv/vue3-memorystats",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohilv/vue3-memorystats.git"
+  },
   "bugs": {
     "email": "github@rohilv.com",
     "url": "https://github.com/rohilv/vue3-memorystats/issues"
