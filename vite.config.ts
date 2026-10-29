@@ -14,5 +14,17 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  build: {
+    lib: {
+      entry: fileURLToPath(new URL('./src/js/vMemoryStats.js', import.meta.url)),
+      name: 'vMemoryStats',
+      formats: ['es', 'umd'],
+      fileName: (format) => `vue3-memorystats.${format}.js`
+    },
+    rollupOptions: {
+      external: ['vue'],
+      output: { globals: { vue: 'Vue' } }
+    }
   }
 })
