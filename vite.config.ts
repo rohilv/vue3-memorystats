@@ -15,6 +15,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
+  publicDir: false,
   build: {
     lib: {
       entry: fileURLToPath(new URL('./src/js/vMemoryStats.js', import.meta.url)),
