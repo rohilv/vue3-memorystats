@@ -4,6 +4,17 @@
   "private": false,
   "license": "MIT",
   "type": "module",
+  "main": "./dist/vue3-memorystats.umd.js",
+  "module": "./dist/vue3-memorystats.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue3-memorystats.es.js",
+      "require": "./dist/vue3-memorystats.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "author": "Rohil Visariya",
   "homepage": "https://github.com/rohilv/vue3-memorystats",
   "bugs": {
@@ -16,7 +27,9 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "lint:ci": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
+    "prepublishOnly": "npm run build-only"
   },
   "dependencies": {
     "vue": "^3.4.29"

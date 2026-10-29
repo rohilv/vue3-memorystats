@@ -16,7 +16,7 @@ npm install vue3-memorystats
 // main.js
 import { createApp } from 'vue'
 import App from './App.vue'
-import vMemoryStats from './js/vMemoryStats'
+import vMemoryStats from 'vue3-memorystats'
 
 const app = createApp(App)
 app.use(vMemoryStats)
