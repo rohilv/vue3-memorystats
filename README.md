@@ -7,6 +7,8 @@
 **vue3-memorystats** adds a live memory usage graph to your Vue 3 app with one line: `app.use(vMemoryStats)`.
 It is a Vue 3 plugin based on [Paul Irish's memory-stats](https://github.com/paulirish/memory-stats.js).
 
+**[Live demo](https://rohilv.github.io/vue3-memorystats/)**
+
 It works in Chromium-based browsers (Chrome, Edge, Brave, Opera), which provide `performance.memory`, but not in Firefox or Safari. For precise numbers, start the browser with `--enable-precise-memory-info` (see below).
 
 ![Memory Stats](src/assets/memory.gif)
@@ -29,6 +31,19 @@ const app = createApp(App)
 app.use(vMemoryStats)
 app.mount('#app')
 ```
+
+### Options
+
+```
+app.use(vMemoryStats, {
+  enabled: import.meta.env.DEV, // default: true. Set to false to render nothing, e.g. in production
+  position: 'bottom-left' // 'top-right' (default), 'top-left', 'bottom-right', 'bottom-left'
+})
+```
+
+- The overlay is removed and its update loop stopped when you call `app.unmount()`.
+- Safe to install during server-side rendering (Nuxt, etc.): it does nothing without a DOM.
+- TypeScript types are included.
 
 ## Start your browser with --enable-precise-memory-info
 

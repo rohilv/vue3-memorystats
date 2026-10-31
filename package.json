@@ -1,19 +1,22 @@
 {
   "name": "vue3-memorystats",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "private": false,
   "license": "MIT",
   "type": "module",
-  "main": "./dist/vue3-memorystats.umd.js",
+  "main": "./dist/vue3-memorystats.umd.cjs",
   "module": "./dist/vue3-memorystats.es.js",
+  "types": "./index.d.ts",
   "exports": {
     ".": {
+      "types": "./index.d.ts",
       "import": "./dist/vue3-memorystats.es.js",
-      "require": "./dist/vue3-memorystats.umd.js"
+      "require": "./dist/vue3-memorystats.umd.cjs"
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "index.d.ts"
   ],
   "author": "Rohil Visariya",
   "homepage": "https://github.com/rohilv/vue3-memorystats",
@@ -33,10 +36,12 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
     "lint:ci": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
-    "prepublishOnly": "npm run build-only"
+    "prepublishOnly": "npm run build-only",
+    "test": "node --test",
+    "build:demo": "vite build --config vite.demo.config.ts"
   },
-  "dependencies": {
-    "vue": "^3.4.29"
+  "peerDependencies": {
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
@@ -47,7 +52,8 @@
     "eslint-plugin-vue": "^9.23.0",
     "npm-run-all2": "^6.2.0",
     "prettier": "^3.2.5",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "vue": "^3.4.29"
   },
   "keywords": [
     "memorystats",
