@@ -62,7 +62,7 @@ var MemoryStats = function () {
 
   // support of the API?
   if (performance.memory.totalJSHeapSize === 0) {
-    console.warn('totalJSHeapSize === 0... performance.memory is only available in Chrome .')
+    console.warn('totalJSHeapSize === 0... performance.memory is only available in Chromium-based browsers.')
   }
 
   var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']

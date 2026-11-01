@@ -1,67 +1,66 @@
 <template>
-  <div>
-    <h1>Garbage Values</h1>
-    <ul>
-      <li v-for="(value, index) in garbageValues" :key="index">{{ value }}</li>
-    </ul>
-  </div>
+  <main>
+    <h1>vue3-memorystats demo</h1>
+    <p>
+      The graph in the top-right corner shows this page's JS heap. Allocate some memory and watch it
+      climb; release it and wait for garbage collection (a red bar) to watch it drop.
+    </p>
+
+    <div class="actions">
+      <button @click="allocate">Allocate ~8 MB</button>
+      <button @click="release" :disabled="!chunks.length">Release all</button>
+    </div>
+    <p class="status">Holding {{ chunks.length }} chunk(s), about {{ chunks.length * 8 }} MB.</p>
+
+    <p class="note">
+      Needs a Chromium-based browser (Chrome, Edge, Brave, Opera). For precise numbers, start it with
+      <code>--enable-precise-memory-info</code>; see the
+      <a href="https://github.com/rohilv/vue3-memorystats#readme">README</a>.
+    </p>
+  </main>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      garbageValues: []
+      chunks: []
     }
   },
-  mounted() {
-    // Initialize with a garbage value
-    this.addGarbageValue()
-
-    // Add more garbage values every 10 seconds
-    this.interval = setInterval(this.addGarbageValue, 5000)
-  },
-  beforeUnmount() {
-    // Clear the interval when the component is destroyed
-    clearInterval(this.interval)
-  },
   methods: {
-    addGarbageValue() {
-      const garbage = Math.random().toString(36).substring(2, 15)
-      this.garbageValues.push(garbage)
+    allocate() {
+      // ~1M doubles is about 8 MB of JS heap
+      this.chunks.push(new Array(1_000_000).fill(0).map(Math.random))
+    },
+    release() {
+      this.chunks = []
     }
   }
 }
 </script>
 
 <style scoped>
-#app {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 2rem;
-  font-weight: normal;
-  background-color: lightgrey;
-}
-@media (min-width: 1024px) {
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-}
-h1 {
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
   color: #333;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
 }
-li {
-  background: #f4f4f4;
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 4px;
-  color: black;
+button {
+  padding: 0.5rem 1rem;
+  font: inherit;
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+.note {
+  font-size: 0.9rem;
+  color: #555;
 }
 </style>

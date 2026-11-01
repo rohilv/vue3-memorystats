@@ -21,7 +21,7 @@ export default defineConfig({
       entry: fileURLToPath(new URL('./src/js/vMemoryStats.js', import.meta.url)),
       name: 'vMemoryStats',
       formats: ['es', 'umd'],
-      fileName: (format) => `vue3-memorystats.${format}.js`
+      fileName: (format) => (format === 'es' ? 'vue3-memorystats.es.js' : 'vue3-memorystats.umd.cjs')
     },
     rollupOptions: {
       external: ['vue'],
