@@ -59,6 +59,14 @@ or
 open -a 'Google Chrome' --args --enable-precise-memory-info --enable-memory-info
 ```
 
+## Troubleshooting
+
+**The number never changes.** Without `--enable-precise-memory-info`, Chromium reports a rounded value that is rarely updated, so the graph can look frozen however much memory your page uses (it commonly sticks at a single value such as `9.54 MB`). Restart the browser with the flag as shown above. The [live demo](https://rohilv.github.io/vue3-memorystats/) tells you when it detects this.
+
+**It shows `n/a`.** The browser does not provide `performance.memory`. That is the case for Firefox and Safari, and for every browser on iOS, which all use WebKit. Use a Chromium-based browser.
+
+**Mobile.** On Android, Chrome gives you no simple way to pass the flag, so the overlay will usually show rounded values there. To inspect a phone's real heap, connect it over USB and use DevTools remote debugging (`chrome://inspect` on your desktop). On iOS this plugin cannot work.
+
 ## Development
 
 ```
